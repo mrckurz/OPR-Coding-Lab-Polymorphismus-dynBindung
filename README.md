@@ -1,6 +1,6 @@
 # 🧪 Java Coding Lab: Polymorphismus & Dynamische Bindung
 
-Dieses Repository enthält ein praktisches Coding Lab für Studierende zum Thema **Polymorphismus** und **dynamische Bindung** (engl. *dynamic method dispatch*) in Java.
+Dieses Repository enthält ein praktisches Coding Lab zu den Themen **Polymorphismus** und **dynamische Bindung** in Java.
 
 ## 🎯 Lernziele
 
