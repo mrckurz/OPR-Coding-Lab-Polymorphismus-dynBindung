@@ -58,52 +58,6 @@ Polymorphie mithilfe einer gemeinsamen Oberklasse anwenden.
 3. Fülle es mit Instanzen von `Dog` und `Cat`.  
 4. Iteriere über das Array und rufe `makeSound()` auf.
 
-### Lösung
-
-```java
-class Animal {
-    void makeSound() {
-        System.out.println("An animal makes a sound");
-    }
-}
-
-class Dog extends Animal {
-    @Override
-    void makeSound() {
-        System.out.println("Woof!");
-    }
-}
-
-class Cat extends Animal {
-    @Override
-    void makeSound() {
-        System.out.println("Meow!");
-    }
-}
-
-public class Main {
-    public static void main(String[] args) {
-        Animal[] animals = {
-            new Dog(),
-            new Cat(),
-            new Dog()
-        };
-
-        for (Animal a : animals) {
-            a.makeSound(); // dynamic method dispatch
-        }
-    }
-}
-```
-
-### Erwartete Ausgabe
-
-```
-Woof!
-Meow!
-Woof!
-```
-
 ---
 
 ## 🧠 Aufgabe 2: Tierpflege-Service
@@ -115,54 +69,6 @@ Dynamische Bindung über Methodenparameter beobachten.
 1. Erstelle eine Klasse `AnimalCaretaker` mit einer Methode `careFor(Animal a)`, die `makeSound()` aufruft.  
 2. Übergib verschiedene `Animal`-Objekte und beobachte das Verhalten zur Laufzeit.
 
-### Lösung
-
-```java
-class AnimalCaretaker {
-    void careFor(Animal a) {
-        System.out.print("Care action: ");
-        a.makeSound();
-    }
-}
-
-class Animal {
-    void makeSound() {
-        System.out.println("An animal makes a sound");
-    }
-}
-
-class Dog extends Animal {
-    @Override
-    void makeSound() {
-        System.out.println("Woof!");
-    }
-}
-
-class Cat extends Animal {
-    @Override
-    void makeSound() {
-        System.out.println("Meow!");
-    }
-}
-
-public class Main {
-    public static void main(String[] args) {
-        Animal dog = new Dog();
-        Animal cat = new Cat();
-        AnimalCaretaker caretaker = new AnimalCaretaker();
-
-        caretaker.careFor(dog);
-        caretaker.careFor(cat);
-    }
-}
-```
-
-### Erwartete Ausgabe
-
-```
-Care action: Woof!
-Care action: Meow!
-```
 
 ---
 
@@ -177,46 +83,6 @@ Anstelle von Vererbung wird ein Interface verwendet.
 3. Schreibe eine Methode, die ein `SoundMaker`-Objekt entgegennimmt und `makeSound()` aufruft.  
 4. Rufe die Methode mit verschiedenen Objekten auf.
 
-### Lösung
-
-```java
-interface SoundMaker {
-    void makeSound();
-}
-
-class Dog implements SoundMaker {
-    public void makeSound() {
-        System.out.println("Woof!");
-    }
-}
-
-class Cat implements SoundMaker {
-    public void makeSound() {
-        System.out.println("Meow!");
-    }
-}
-
-public class Main {
-    static void triggerSound(SoundMaker sm) {
-        sm.makeSound();
-    }
-
-    public static void main(String[] args) {
-        SoundMaker dog = new Dog();
-        SoundMaker cat = new Cat();
-
-        triggerSound(dog);
-        triggerSound(cat);
-    }
-}
-```
-
-### Erwartete Ausgabe
-
-```
-Woof!
-Meow!
-```
 
 ---
 
